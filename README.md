@@ -27,3 +27,34 @@ Fichier associé: `src/1st_course.py`
 ### Les structures
 1. Pour les structures **for** et **while** il existe un '`else`' qui est utilisé quand la boucle est menée à terme.
 1. Pour ces mêmes structures, il existe **break** et **continue** permettant de casser la boucle ou passer à la valeur suivante.
+
+
+
+## Séance 2: structures de données, collections et fonctions géniales
+
+### Les dictionnaires
+1. Les dictionnaires ne sont **pas ordonnées** et leurs clés sont uniques.
+1. **Déclaration**: pour déclarer un dictionnaire nous utilisons `my_dict = {key1: val1, key2: val2}`. Nous pouvons également utiliser `vars(args)` qui va appeler `args.__dict__()`.
+1. **Mutable**: un dictionnaire est mutable. En revanche, les *clés* doit impérativement être **immuable** (*i.e. la fonction `hash` ne renvoie pas d'erreur*)
+1. **Obtention** d'une valeur. Pour obtenir une valeur du dictionnaire on préféra utiliser `my_dict.get(key, [default_value])` que `my_dict[key]` car cette deuxième solution renvoie une erreur si la clé n'est pas dans le dictionnaire tandis que la fonction *get* renverra `None` ou une valeur choisie.
+1. On peut définir une **clé sans valeur** avec `my_dict.setdefault(key)`. La clé aura alors `None` comme valeur.
+1. Nous pouvons les utiliser pour implémenter un *switch-case*, absent en Python.
+
+
+### Les ensembles
+1. Les ensembles sont des collections **non ordonnées** et **sans doublons**. Ils peuvent être utilisés pour la gestion des intersections et des unions.
+1. Les ensembles sont **mutables**.
+1. La **définition** se fait avec `set(my_values)`.
+1. De nombreuses fonctions permettent de faire la 'différence' des éléments présents dans deux ensembles: `issubset`, `issuperset`, ...
+
+
+### Les collections
+Il existe bien entendu de nombreuses collections, certaines par défaut comme nous venons de voir. Mais nous pouvons trouver **toutes des collections disponibles** avec `import collections`.
+Par exemple, il y les objets `Counter` ressemblants aux dictionnaires plus ou moins quelques fonctions. Nous pouvons trouver ainsi des collections très intéressantes!
+
+
+### Quelques fonctions géniales
+1. **any() Vs. all()**: ces fonctions permettent de savoir si l'un des items est vrai (*respectivement tous les items*) ou non. Par exemple, `any([False, True])` donnera `True` tandis que `all([False, True])` renverra `False`
+1. **map()** permet d'appliquer une fonction à chaque item d'un itérable `map(my_func, my_iter)`. Il existe dans le même type **filter()** qui filtrent les items.
+1. **zip()** permet de zip deux itérateurs de même taille, `list(zip((0,1,2), ['a', 'b', 'c'])) >>> [(0, 'a'), (1, 'b'), (2, 'c')]`
+1. **Créer des itérateurs** afin de boucler efficacement avec `import itertools`. Ce module offre en effet de nombreux itérateurs: `count()`, `dropwhile()`, `combinations()`, ...
